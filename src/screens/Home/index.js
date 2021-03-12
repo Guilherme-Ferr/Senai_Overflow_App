@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { api } from "../../services/api";
 import { StatusBar, FlatList, TouchableOpacity } from "react-native";
+import colors from "../../styles/colors";
+import CardQuestion from "../../components/CardQuestion";
+import imgLogo from "../../../assets/logo.png";
+import signOut from "../../services/security";
 import {
 	Container,
 	ToolBar,
@@ -9,9 +13,6 @@ import {
 	LoadingFeed,
 	IconSignOut,
 } from "./styles";
-import colors from "../../styles/colors";
-import CardQuestion from "../../components/CardQuestion";
-import imgLogo from "../../../assets/logo.png";
 
 function Home({ navigation }) {
 	StatusBar.setBackgroundColor(colors.primary);
@@ -68,18 +69,18 @@ function Home({ navigation }) {
 	return (
 		<Container>
 			<ToolBar>
+				<TextToolBar>SENAI OVERFLOW</TextToolBar>
 				<TouchableOpacity
 					onPress={handleRefresh}
 					style={{ position: "absolute", left: 4 }}
 				>
 					<ImageLogo source={imgLogo} />
 				</TouchableOpacity>
-				<TextToolBar>SENAI OVERFLOWWWW</TextToolBar>
 				<TouchableOpacity
-					onPress={handleRefresh}
+					onPress={handleSignOut}
 					style={{ position: "absolute", right: 4 }}
 				>
-					<IconSignOut onPress={handleSignOut} name="sign-out" />
+					<IconSignOut name="sign-out" />
 				</TouchableOpacity>
 			</ToolBar>
 			<FlatList

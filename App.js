@@ -21,7 +21,7 @@ export default function App() {
 
 		load();
 	}, []);
-
+ 
 	if (!isLoaded) {
 		return null;
 	}
